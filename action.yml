@@ -25,7 +25,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - uses: sxbrsky/latest-php-releases-action@1.0.0
       id: latest-releases
     - run: node ${{ github.action_path }}/dist/index.js
