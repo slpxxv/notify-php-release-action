@@ -1,6 +1,7 @@
 # Notify PHP Release Action
 
-[![CI](https://github.com/sxbrsky/notify-php-release-action/actions/workflows/main.yml/badge.svg)](https://github.com/sxbrsky/notify-php-release-action/actions/workflows/main.yml)
+[![CI](https://github.com/slpxxv/notify-php-release-action/actions/workflows/main.yml/badge.svg)](https://github.com/slpxxv/notify-php-release-action/actions/workflows/main.yml)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Notify%20PHP%20Releases-blue?logo=github)](https://github.com/marketplace/actions/notify-php-releases)
 
 A GitHub Action that opens an issue when a PHP release is not present in your
 repository's releases file. Repeated workflow runs are safe: the action searches
@@ -12,7 +13,7 @@ issues.
 The action:
 
 1. fetches the latest PHP releases with
-   [`latest-php-releases-action`](https://github.com/sxbrsky/latest-php-releases-action),
+   [`latest-php-releases-action`](https://github.com/slpxxv/latest-php-releases-action),
 2. reads the versions currently used by the repository,
 3. ignores releases already listed in that file, and
 4. creates one issue for each remaining version.
@@ -20,7 +21,7 @@ The action:
 Generated issue titles use the following format:
 
 ```text
-build: bump PHP release to 8.4.1
+build: bump PHP release to 8.5.11
 ```
 
 ## Usage
@@ -28,8 +29,8 @@ build: bump PHP release to 8.4.1
 Create a file such as `.releases` containing one PHP version per line:
 
 ```text
-8.3.7
-8.2.19
+8.5.10
+8.4.26
 ```
 
 Blank lines and surrounding whitespace are ignored. Then add a workflow:
@@ -51,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for new PHP releases
-        uses: sxbrsky/notify-php-release-action@v1
+        uses: slpxxv/notify-php-release-action@v1.2.0
         with:
           repo-token: ${{ github.token }}
           owner: ${{ github.repository_owner }}
